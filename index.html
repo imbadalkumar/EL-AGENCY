@@ -1,0 +1,3936 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Earns Locally</title>
+
+<!-- Fonts -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;700&family=Sora:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<style>
+    /* ==========================
+ROOT
+========================== */
+
+:root{
+
+--black:#000000;
+--dark:#0a0a0a;
+--white:#ffffff;
+
+--gray:#707070;
+--light:#f6f6f6;
+
+--blue:#2563eb;
+--blue2:#3b82f6;
+
+--border:rgba(255,255,255,.08);
+
+}
+
+/* ==========================
+RESET
+========================== */
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+font-family:'Inter',sans-serif;
+
+background:#ffffff;
+
+color:#000;
+
+overflow-x:hidden;
+
+}
+
+/* ==========================
+SCROLLBAR
+========================== */
+
+::-webkit-scrollbar{
+
+width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#111;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#fff;
+
+}
+
+/* ==========================
+NAVBAR
+========================== */
+
+.navbar{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+z-index:1000;
+
+background:
+rgba(255,255,255,.82);
+
+backdrop-filter:blur(20px);
+
+border-bottom:
+1px solid rgba(0,0,0,.05);
+
+}
+
+.nav-container{
+
+max-width:1400px;
+
+margin:auto;
+
+padding:
+
+20px 25px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+/* ==========================
+LOGO
+========================== */
+
+.logo{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+text-decoration:none;
+
+}
+
+.logo-dot{
+
+width:14px;
+height:14px;
+
+background:
+
+linear-gradient(
+45deg,
+#2563eb,
+#3b82f6
+);
+
+border-radius:50%;
+
+}
+
+.logo span{
+
+font-size:22px;
+
+font-weight:800;
+
+font-family:'Space Grotesk',sans-serif;
+
+color:#000;
+
+}
+
+/* ==========================
+DESKTOP NAV
+========================== */
+
+.desktop-nav{
+
+display:none;
+
+gap:40px;
+
+}
+
+.desktop-nav a{
+
+text-decoration:none;
+
+color:#111;
+
+font-size:15px;
+
+font-weight:600;
+
+position:relative;
+
+}
+
+.desktop-nav a::after{
+
+content:'';
+
+position:absolute;
+
+left:0;
+bottom:-6px;
+
+width:0;
+
+height:2px;
+
+background:#2563eb;
+
+transition:.4s;
+
+}
+
+.desktop-nav a:hover::after{
+
+width:100%;
+
+}
+
+/* ==========================
+RIGHT
+========================== */
+
+.nav-right{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+}
+
+/* BUTTON */
+
+.nav-btn{
+
+padding:
+
+14px 22px;
+
+background:#000;
+
+color:#fff;
+
+text-decoration:none;
+
+border-radius:50px;
+
+font-size:14px;
+
+font-weight:700;
+
+transition:.4s;
+
+display:none;
+
+}
+
+.nav-btn:hover{
+
+transform:
+translateY(-4px);
+
+}
+
+/* ==========================
+MENU BTN
+========================== */
+
+.menu-btn{
+
+width:50px;
+height:50px;
+
+border:none;
+
+background:#fff;
+
+cursor:pointer;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+gap:6px;
+
+}
+
+.menu-btn span{
+
+width:22px;
+height:2px;
+
+background:#000;
+
+transition:.4s;
+
+}
+
+/* ==========================
+MOBILE MENU
+========================== */
+
+.mobile-menu{
+
+position:fixed;
+
+top:0;
+left:100%;
+
+width:100%;
+height:100vh;
+
+background:#000;
+
+z-index:999;
+
+transition:.7s;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.mobile-menu.active{
+
+left:0;
+
+}
+
+.menu-inner{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+gap:30px;
+
+}
+
+.menu-inner a{
+
+text-decoration:none;
+
+font-size:40px;
+
+font-family:'Space Grotesk';
+
+font-weight:700;
+
+color:#fff;
+
+}
+
+.mobile-bottom{
+
+margin-top:40px;
+
+}
+
+.mobile-bottom p{
+
+color:#888;
+
+font-size:14px;
+
+}
+
+/* ==========================
+HERO
+========================== */
+
+.hero{
+
+position:relative;
+
+height:100vh;
+
+overflow:hidden;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+padding:0 25px;
+
+}
+
+/* VIDEO */
+
+.hero-video{
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+}
+
+/* OVERLAY */
+
+.video-overlay{
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:
+
+linear-gradient(
+to bottom,
+rgba(0,0,0,.45),
+rgba(0,0,0,.65)
+);
+
+}
+
+/* ==========================
+CONTENT
+========================== */
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:1200px;
+
+width:100%;
+
+}
+
+/* BADGE */
+
+.hero-badge{
+
+display:inline-flex;
+
+padding:
+
+10px 18px;
+
+border-radius:50px;
+
+background:
+rgba(255,255,255,.12);
+
+backdrop-filter:blur(15px);
+
+border:
+1px solid rgba(255,255,255,.2);
+
+color:#fff;
+
+font-size:12px;
+
+letter-spacing:2px;
+
+margin-bottom:25px;
+
+}
+
+/* ==========================
+HEADING
+========================== */
+
+.hero h1{
+
+font-family:'Sora';
+
+font-size:60px;
+
+line-height:.95;
+
+font-weight:800;
+
+color:#fff;
+
+max-width:800px;
+
+}
+
+.hero h1 span{
+
+display:block;
+
+color:#3b82f6;
+
+}
+
+/* PARAGRAPH */
+
+.hero p{
+
+margin-top:25px;
+
+max-width:650px;
+
+font-size:18px;
+
+line-height:1.8;
+
+color:#ddd;
+
+}
+
+/* ==========================
+BUTTONS
+========================== */
+
+.hero-buttons{
+
+display:flex;
+
+gap:15px;
+
+margin-top:40px;
+
+flex-wrap:wrap;
+
+}
+
+.primary-btn{
+
+padding:
+
+18px 28px;
+
+background:#2563eb;
+
+color:#fff;
+
+text-decoration:none;
+
+border-radius:50px;
+
+font-weight:700;
+
+transition:.4s;
+
+}
+
+.primary-btn:hover{
+
+transform:
+translateY(-5px);
+
+}
+
+.secondary-btn{
+
+padding:
+
+18px 28px;
+
+border:
+
+1px solid rgba(255,255,255,.2);
+
+backdrop-filter:blur(15px);
+
+background:
+rgba(255,255,255,.08);
+
+color:#fff;
+
+text-decoration:none;
+
+border-radius:50px;
+
+font-weight:700;
+
+transition:.4s;
+
+}
+
+.secondary-btn:hover{
+
+transform:
+translateY(-5px);
+
+}
+
+/* ==========================
+FLOATING BOXES
+========================== */
+
+.floating-box{
+
+position:absolute;
+
+z-index:3;
+
+background:
+rgba(255,255,255,.12);
+
+backdrop-filter:blur(20px);
+
+padding:
+
+18px 24px;
+
+border-radius:20px;
+
+border:
+
+1px solid rgba(255,255,255,.15);
+
+}
+
+.floating-box h3{
+
+color:#fff;
+
+font-size:24px;
+
+}
+
+.floating-box p{
+
+margin-top:5px;
+
+font-size:12px;
+
+color:#ddd;
+
+}
+
+.box1{
+
+top:22%;
+
+right:5%;
+
+}
+
+.box2{
+
+bottom:20%;
+
+right:10%;
+
+}
+
+.box3{
+
+bottom:12%;
+
+left:6%;
+
+}
+
+/* ==========================
+TRUST BAR
+========================== */
+
+.trust-bar{
+
+padding:22px 0;
+
+background:#fff;
+
+overflow:hidden;
+
+border-top:
+1px solid #eee;
+
+border-bottom:
+1px solid #eee;
+
+}
+
+.trust-track{
+
+display:flex;
+
+gap:60px;
+
+white-space:nowrap;
+
+animation:
+scroll 25s linear infinite;
+
+font-weight:800;
+
+font-size:18px;
+
+}
+
+.trust-track span{
+
+color:#111;
+
+}
+
+@keyframes scroll{
+
+0%{
+
+transform:translateX(0);
+
+}
+
+100%{
+
+transform:translateX(-50%);
+
+}
+
+}
+
+/* ==========================
+FOOTER
+========================== */
+
+.footer{
+
+background:#000;
+
+color:#fff;
+
+padding:
+
+100px 25px 40px;
+
+}
+
+.footer-top{
+
+max-width:1400px;
+
+margin:auto;
+
+margin-bottom:70px;
+
+}
+
+.footer-top h2{
+
+font-size:65px;
+
+font-family:'Sora';
+
+}
+
+.footer-top p{
+
+margin-top:15px;
+
+color:#888;
+
+}
+
+/* GRID */
+
+.footer-grid{
+
+max-width:1400px;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:1fr;
+
+gap:40px;
+
+}
+
+.footer-grid h4{
+
+margin-bottom:20px;
+
+font-size:18px;
+
+}
+
+.footer-grid a{
+
+display:block;
+
+margin-bottom:12px;
+
+color:#888;
+
+text-decoration:none;
+
+}
+
+.footer-grid a:hover{
+
+color:#fff;
+
+}
+
+.footer-bottom{
+
+max-width:1400px;
+
+margin:auto;
+
+margin-top:60px;
+
+padding-top:25px;
+
+border-top:
+1px solid rgba(255,255,255,.08);
+
+color:#666;
+
+}
+
+/* ==========================
+TABLET
+========================== */
+
+@media(min-width:768px){
+
+.hero h1{
+
+font-size:90px;
+
+}
+
+.footer-grid{
+
+grid-template-columns:
+repeat(3,1fr);
+
+}
+
+}
+
+/* ==========================
+DESKTOP
+========================== */
+
+@media(min-width:1100px){
+
+.desktop-nav{
+
+display:flex;
+
+}
+
+.nav-btn{
+
+display:inline-flex;
+
+}
+
+.menu-btn{
+
+display:none;
+
+}
+
+.hero h1{
+
+font-size:120px;
+
+}
+
+}
+</style>
+
+
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+<div class="nav-container">
+
+<a href="#" class="logo">
+
+<div class="logo-dot"></div>
+
+<span>Earns Locally</span>
+
+</a>
+
+<nav class="desktop-nav">
+
+<a href="#">Services</a>
+<a href="#">Solutions</a>
+<a href="#">Industries</a>
+<a href="#">Portfolio</a>
+<a href="#">Contact</a>
+
+</nav>
+
+<div class="nav-right">
+
+<a href="#" class="nav-btn">
+
+Get Started
+
+</a>
+
+<button class="menu-btn">
+
+<span></span>
+<span></span>
+
+</button>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- MOBILE MENU -->
+
+<div class="mobile-menu">
+
+<div class="menu-inner">
+
+<a href="#">Services</a>
+
+<a href="#">Solutions</a>
+
+<a href="#">Industries</a>
+
+<a href="#">Portfolio</a>
+
+<a href="#">About</a>
+
+<a href="#">Contact</a>
+
+<div class="mobile-bottom">
+
+<p>
+
+Building Digital Businesses.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<!-- VIDEO -->
+
+<video
+autoplay
+muted
+loop
+playsinline
+class="hero-video">
+
+<source
+src="https://cdn.coverr.co/videos/coverr-programming-at-night-1568453537067?download=1080p"
+type="video/mp4">
+
+</video>
+
+<div class="video-overlay"></div>
+
+<div class="hero-content">
+
+<div class="hero-badge">
+
+DIGITAL INFRASTRUCTURE • AI • SOFTWARE
+
+</div>
+
+<h1>
+
+We Build
+
+<span>
+
+Digital
+
+</span>
+
+Businesses.
+
+</h1>
+
+<p>
+
+Helping startups, businesses, distributors,
+service providers and enterprises scale through
+software, automation, AI systems and growth.
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="#" class="primary-btn">
+
+Start Project
+
+</a>
+
+<a href="#" class="secondary-btn">
+
+View Work
+
+</a>
+
+</div>
+
+</div>
+
+<!-- FLOATING METRICS -->
+
+<div class="floating-box box1">
+
+<h3>
+
+100+
+
+</h3>
+
+<p>
+
+Projects
+
+</p>
+
+</div>
+
+<div class="floating-box box2">
+
+<h3>
+
+AI
+
+</h3>
+
+<p>
+
+Solutions
+
+</p>
+
+</div>
+
+<div class="floating-box box3">
+
+<h3>
+
+24/7
+
+</h3>
+
+<p>
+
+Support
+
+</p>
+
+</div>
+
+</section>
+
+<!-- TRUST BAR -->
+
+<section class="trust-bar">
+
+<div class="trust-track">
+
+<span>SOFTWARE DEVELOPMENT</span>
+
+<span>AI SYSTEMS</span>
+
+<span>WEB APPLICATIONS</span>
+
+<span>MOBILE APPS</span>
+
+<span>MARKETING</span>
+
+<span>AUTOMATION</span>
+
+<span>BUSINESS GROWTH</span>
+
+<span>SOFTWARE DEVELOPMENT</span>
+
+<span>AI SYSTEMS</span>
+
+<span>WEB APPLICATIONS</span>
+
+</div>
+
+</section>
+
+
+
+<!-- ====================================
+AGENCY ECOSYSTEM SECTION
+==================================== -->
+
+<section class="ecosystem-section">
+
+<div class="ecosystem-container">
+
+<div class="ecosystem-top">
+
+<div class="ecosystem-tag">
+
+OUR ECOSYSTEM
+
+</div>
+
+<h2>
+
+Not Just An Agency.
+
+<span>
+
+A Complete Digital Growth Ecosystem.
+
+</span>
+
+</h2>
+
+<p>
+
+We help businesses build, automate,
+market and scale using software,
+AI systems and modern digital infrastructure.
+
+</p>
+
+</div>
+
+<div class="ecosystem-grid">
+
+<div class="eco-card">
+
+<div class="eco-number">
+
+01
+
+</div>
+
+<h3>
+
+Software Development
+
+</h3>
+
+<p>
+
+Web platforms, dashboards,
+enterprise systems and custom software.
+
+</p>
+
+</div>
+
+<div class="eco-card">
+
+<div class="eco-number">
+
+02
+
+</div>
+
+<h3>
+
+AI Solutions
+
+</h3>
+
+<p>
+
+AI chatbots, automation,
+intelligent workflows and AI products.
+
+</p>
+
+</div>
+
+<div class="eco-card">
+
+<div class="eco-number">
+
+03
+
+</div>
+
+<h3>
+
+Digital Marketing
+
+</h3>
+
+<p>
+
+Performance marketing,
+branding and lead generation.
+
+</p>
+
+</div>
+
+<div class="eco-card">
+
+<div class="eco-number">
+
+04
+
+</div>
+
+<h3>
+
+Business Growth
+
+</h3>
+
+<p>
+
+Helping local businesses,
+builders, wholesalers and distributors.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<style>
+
+/* ====================================
+ECOSYSTEM SECTION
+==================================== */
+
+.ecosystem-section{
+
+padding:140px 24px;
+
+background:#ffffff;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.ecosystem-container{
+
+max-width:1400px;
+
+margin:auto;
+
+}
+
+/* TOP */
+
+.ecosystem-top{
+
+text-align:center;
+
+max-width:900px;
+
+margin:auto;
+
+margin-bottom:90px;
+
+}
+
+.ecosystem-tag{
+
+display:inline-flex;
+
+padding:10px 18px;
+
+background:#f5f5f5;
+
+border-radius:50px;
+
+font-size:12px;
+
+font-weight:700;
+
+letter-spacing:2px;
+
+margin-bottom:25px;
+
+}
+
+.ecosystem-top h2{
+
+font-size:72px;
+
+line-height:.95;
+
+font-family:'Sora';
+
+font-weight:800;
+
+letter-spacing:-3px;
+
+margin-bottom:25px;
+
+}
+
+.ecosystem-top h2 span{
+
+display:block;
+
+color:#2563eb;
+
+}
+
+.ecosystem-top p{
+
+font-size:18px;
+
+line-height:1.8;
+
+color:#666;
+
+}
+
+/* GRID */
+
+.ecosystem-grid{
+
+display:grid;
+
+grid-template-columns:1fr;
+
+gap:24px;
+
+}
+
+/* CARD */
+
+.eco-card{
+
+background:white;
+
+padding:40px;
+
+border-radius:30px;
+
+border:
+
+1px solid rgba(0,0,0,.08);
+
+transition:.5s;
+
+cursor:pointer;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.eco-card::before{
+
+content:'';
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:4px;
+
+background:#2563eb;
+
+transform:scaleX(0);
+
+transition:.5s;
+
+}
+
+.eco-card:hover::before{
+
+transform:scaleX(1);
+
+}
+
+.eco-card:hover{
+
+transform:
+translateY(-12px);
+
+box-shadow:
+0 30px 80px rgba(0,0,0,.08);
+
+}
+
+/* NUMBER */
+
+.eco-number{
+
+font-size:18px;
+
+font-weight:800;
+
+color:#2563eb;
+
+margin-bottom:25px;
+
+}
+
+/* TITLE */
+
+.eco-card h3{
+
+font-size:32px;
+
+line-height:1;
+
+margin-bottom:18px;
+
+font-family:'Space Grotesk';
+
+}
+
+/* TEXT */
+
+.eco-card p{
+
+font-size:15px;
+
+line-height:1.9;
+
+color:#666;
+
+}
+
+/* TABLET */
+
+@media(min-width:768px){
+
+.ecosystem-grid{
+
+grid-template-columns:
+repeat(2,1fr);
+
+}
+
+}
+
+/* DESKTOP */
+
+@media(min-width:1200px){
+
+.ecosystem-grid{
+
+grid-template-columns:
+repeat(4,1fr);
+
+}
+
+.ecosystem-top h2{
+
+font-size:100px;
+
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:767px){
+
+.ecosystem-top h2{
+
+font-size:46px;
+
+}
+
+.eco-card{
+
+padding:30px;
+
+}
+
+}
+
+</style>
+
+<script>
+
+/* ====================================
+ECOSYSTEM ANIMATION
+==================================== */
+
+const ecoCards =
+document.querySelectorAll(".eco-card")
+
+const ecoObserver =
+new IntersectionObserver(
+
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.animate(
+
+[
+{
+opacity:0,
+transform:'translateY(80px)'
+},
+
+{
+opacity:1,
+transform:'translateY(0px)'
+}
+],
+
+{
+duration:1000,
+fill:'forwards'
+}
+
+)
+
+}
+
+})
+
+},
+
+{
+threshold:.2
+}
+
+)
+
+ecoCards.forEach(card=>{
+
+ecoObserver.observe(card)
+
+})
+
+/* ====================================
+3D HOVER
+==================================== */
+
+ecoCards.forEach(card=>{
+
+card.addEventListener(
+
+'mousemove',
+
+(e)=>{
+
+const rect =
+card.getBoundingClientRect()
+
+const x =
+e.clientX - rect.left
+
+const y =
+e.clientY - rect.top
+
+const rotateX =
+(y - rect.height/2) / 20
+
+const rotateY =
+(rect.width/2 - x) / 20
+
+card.style.transform =
+
+`
+rotateX(${rotateX}deg)
+rotateY(${rotateY}deg)
+translateY(-10px)
+`
+
+}
+
+)
+
+card.addEventListener(
+
+'mouseleave',
+
+()=>{
+
+card.style.transform =
+
+`
+rotateX(0)
+rotateY(0)
+translateY(0)
+`
+
+}
+
+)
+
+})
+
+</script>
+
+
+
+<!-- =====================================
+INDUSTRIES + SERVICES SHOWCASE
+===================================== -->
+
+<section class="services-showcase">
+
+<div class="services-container">
+
+<div class="services-header">
+
+<div class="service-tag">
+
+WHAT WE DO
+
+</div>
+
+<h2>
+
+Solutions For
+
+Every Industry.
+
+</h2>
+
+<p>
+
+From software development and AI systems
+to builders, finance, real estate and enterprise
+operations.
+
+</p>
+
+</div>
+
+<!-- SOFTWARE -->
+
+<div class="service-row">
+
+<div class="service-number">
+
+01
+
+</div>
+
+<div class="service-content">
+
+<h3>
+
+Software Development
+
+</h3>
+
+<p>
+
+Custom software, SaaS platforms,
+business dashboards, CRM systems,
+ERP systems and enterprise solutions.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- AI -->
+
+<div class="service-row">
+
+<div class="service-number">
+
+02
+
+</div>
+
+<div class="service-content">
+
+<h3>
+
+Artificial Intelligence
+
+</h3>
+
+<p>
+
+AI agents, chatbots, automation,
+predictive systems and AI integrations.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- MARKETING -->
+
+<div class="service-row">
+
+<div class="service-number">
+
+03
+
+</div>
+
+<div class="service-content">
+
+<h3>
+
+Digital Marketing
+
+</h3>
+
+<p>
+
+Lead generation, branding,
+social media growth and performance campaigns.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- BUILDERS -->
+
+<div class="service-row">
+
+<div class="service-number">
+
+04
+
+</div>
+
+<div class="service-content">
+
+<h3>
+
+Builders & Construction
+
+</h3>
+
+<p>
+
+Project management systems,
+construction websites,
+sales funnels and CRM solutions.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- REAL ESTATE -->
+
+<div class="service-row">
+
+<div class="service-number">
+
+05
+
+</div>
+
+<div class="service-content">
+
+<h3>
+
+Real Estate Solutions
+
+</h3>
+
+<p>
+
+Property portals,
+lead management,
+real estate marketing
+and automation.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- FINANCE -->
+
+<div class="service-row">
+
+<div class="service-number">
+
+06
+
+</div>
+
+<div class="service-content">
+
+<h3>
+
+Finance & Audit
+
+</h3>
+
+<p>
+
+Accounting systems,
+audit solutions,
+compliance support
+and workflow automation.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- WHOLESALERS -->
+
+<div class="service-row">
+
+<div class="service-number">
+
+07
+
+</div>
+
+<div class="service-content">
+
+<h3>
+
+Wholesalers & Distributors
+
+</h3>
+
+<p>
+
+Inventory systems,
+supply chain software,
+dealer networks and growth solutions.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- SERVICE PROVIDERS -->
+
+<div class="service-row">
+
+<div class="service-number">
+
+08
+
+</div>
+
+<div class="service-content">
+
+<h3>
+
+Service Providers
+
+</h3>
+
+<p>
+
+Booking systems,
+customer portals,
+automation and digital operations.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<style>
+
+/* =====================================
+SERVICES SHOWCASE
+===================================== */
+
+.services-showcase{
+
+padding:150px 24px;
+
+background:#fafafa;
+
+}
+
+.services-container{
+
+max-width:1400px;
+
+margin:auto;
+
+}
+
+.services-header{
+
+text-align:center;
+
+max-width:900px;
+
+margin:auto;
+
+margin-bottom:100px;
+
+}
+
+.service-tag{
+
+display:inline-flex;
+
+padding:12px 20px;
+
+background:white;
+
+border-radius:50px;
+
+font-size:12px;
+
+font-weight:700;
+
+letter-spacing:2px;
+
+margin-bottom:25px;
+
+}
+
+.services-header h2{
+
+font-size:90px;
+
+line-height:.9;
+
+font-family:'Sora';
+
+margin-bottom:20px;
+
+}
+
+.services-header p{
+
+font-size:18px;
+
+line-height:1.8;
+
+color:#666;
+
+}
+
+/* ROW */
+
+.service-row{
+
+display:grid;
+
+grid-template-columns:
+90px 1fr;
+
+padding:50px 0;
+
+border-bottom:
+1px solid rgba(0,0,0,.08);
+
+transition:.5s;
+
+cursor:pointer;
+
+}
+
+.service-row:hover{
+
+padding-left:25px;
+
+}
+
+.service-number{
+
+font-size:20px;
+
+font-weight:800;
+
+color:#2563eb;
+
+}
+
+.service-content h3{
+
+font-size:56px;
+
+line-height:1;
+
+font-family:'Space Grotesk';
+
+margin-bottom:15px;
+
+}
+
+.service-content p{
+
+max-width:700px;
+
+font-size:16px;
+
+line-height:1.9;
+
+color:#666;
+
+}
+
+@media(max-width:768px){
+
+.services-header h2{
+
+font-size:48px;
+
+}
+
+.service-row{
+
+grid-template-columns:1fr;
+
+gap:20px;
+
+}
+
+.service-content h3{
+
+font-size:36px;
+
+}
+
+}
+
+</style>
+
+<script>
+
+/* =====================================
+SERVICE REVEAL
+===================================== */
+
+const serviceRows =
+document.querySelectorAll('.service-row')
+
+const serviceObserver =
+new IntersectionObserver(
+
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.animate(
+
+[
+{
+opacity:0,
+transform:'translateY(80px)'
+},
+
+{
+opacity:1,
+transform:'translateY(0px)'
+}
+],
+
+{
+duration:1000,
+fill:'forwards'
+}
+
+)
+
+}
+
+})
+
+},
+
+{
+threshold:.2
+}
+
+)
+
+serviceRows.forEach(row=>{
+
+serviceObserver.observe(row)
+
+})
+
+</script>
+
+
+
+<!-- =====================================
+WHO WE SERVE
+PREMIUM ENTERPRISE VERSION
+===================================== -->
+
+<section class="who-we-serve">
+
+<div class="serve-container">
+
+<div class="serve-header">
+
+<div class="serve-tag">
+
+WHO WE SERVE
+
+</div>
+
+<h2>
+
+Built For Businesses.
+
+<span>
+
+Designed For Growth.
+
+</span>
+
+</h2>
+
+<p>
+
+We help organizations build stronger digital infrastructure,
+streamline operations and accelerate growth through software,
+AI, automation and strategic execution.
+
+</p>
+
+</div>
+
+<div class="serve-grid">
+
+<!-- CARD -->
+
+<div class="serve-card">
+
+<div class="serve-watermark">
+
+STARTUPS
+
+</div>
+
+<h3>
+
+Startups
+
+</h3>
+
+<p>
+
+MVP development, SaaS products,
+AI-powered systems and scalable growth infrastructure.
+
+</p>
+
+</div>
+
+<!-- CARD -->
+
+<div class="serve-card">
+
+<div class="serve-watermark">
+
+ENTERPRISE
+
+</div>
+
+<h3>
+
+Enterprises
+
+</h3>
+
+<p>
+
+Large-scale software solutions,
+automation systems and operational optimization.
+
+</p>
+
+</div>
+
+<!-- CARD -->
+
+<div class="serve-card">
+
+<div class="serve-watermark">
+
+BUILDERS
+
+</div>
+
+<h3>
+
+Builders & Construction
+
+</h3>
+
+<p>
+
+Project showcase platforms,
+CRM solutions and digital sales systems.
+
+</p>
+
+</div>
+
+<!-- CARD -->
+
+<div class="serve-card">
+
+<div class="serve-watermark">
+
+REAL ESTATE
+
+</div>
+
+<h3>
+
+Real Estate
+
+</h3>
+
+<p>
+
+Property management platforms,
+lead generation systems and automation workflows.
+
+</p>
+
+</div>
+
+<!-- CARD -->
+
+<div class="serve-card">
+
+<div class="serve-watermark">
+
+FINANCE
+
+</div>
+
+<h3>
+
+Finance & Audit
+
+</h3>
+
+<p>
+
+Accounting systems,
+compliance workflows,
+reporting and automation.
+
+</p>
+
+</div>
+
+<!-- CARD -->
+
+<div class="serve-card">
+
+<div class="serve-watermark">
+
+WHOLESALE
+
+</div>
+
+<h3>
+
+Wholesalers
+
+</h3>
+
+<p>
+
+Inventory management,
+business software and supply chain digitization.
+
+</p>
+
+</div>
+
+<!-- CARD -->
+
+<div class="serve-card">
+
+<div class="serve-watermark">
+
+DISTRIBUTION
+
+</div>
+
+<h3>
+
+Distributors
+
+</h3>
+
+<p>
+
+Dealer management,
+tracking systems and operational control.
+
+</p>
+
+</div>
+
+<!-- CARD -->
+
+<div class="serve-card">
+
+<div class="serve-watermark">
+
+HEALTHCARE
+
+</div>
+
+<h3>
+
+Healthcare
+
+</h3>
+
+<p>
+
+Hospital software,
+patient systems and digital transformation solutions.
+
+</p>
+
+</div>
+
+<!-- CARD -->
+
+<div class="serve-card">
+
+<div class="serve-watermark">
+
+EDUCATION
+
+</div>
+
+<h3>
+
+Education
+
+</h3>
+
+<p>
+
+Learning platforms,
+student portals and academic automation.
+
+</p>
+
+</div>
+
+<!-- CARD -->
+
+<div class="serve-card">
+
+<div class="serve-watermark">
+
+RETAIL
+
+</div>
+
+<h3>
+
+Retail
+
+</h3>
+
+<p>
+
+Point-of-sale systems,
+inventory management and eCommerce solutions.
+
+</p>
+
+</div>
+
+<!-- CARD -->
+
+<div class="serve-card">
+
+<div class="serve-watermark">
+
+INDUSTRY
+
+</div>
+
+<h3>
+
+Manufacturing
+
+</h3>
+
+<p>
+
+Production tracking,
+workflow automation and reporting systems.
+
+</p>
+
+</div>
+
+<!-- CARD -->
+
+<div class="serve-card">
+
+<div class="serve-watermark">
+
+SERVICES
+
+</div>
+
+<h3>
+
+Service Providers
+
+</h3>
+
+<p>
+
+Booking platforms,
+client portals and business process automation.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<style>
+
+/* =====================================
+WHO WE SERVE
+PREMIUM VERSION
+===================================== */
+
+.who-we-serve{
+
+padding:160px 24px;
+
+background:#ffffff;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.serve-container{
+
+max-width:1450px;
+
+margin:auto;
+
+}
+
+/* HEADER */
+
+.serve-header{
+
+text-align:center;
+
+max-width:950px;
+
+margin:auto;
+
+margin-bottom:100px;
+
+}
+
+.serve-tag{
+
+display:inline-flex;
+
+padding:12px 20px;
+
+border-radius:50px;
+
+background:#f4f4f4;
+
+font-size:12px;
+
+font-weight:800;
+
+letter-spacing:2px;
+
+margin-bottom:25px;
+
+}
+
+.serve-header h2{
+
+font-family:'Sora';
+
+font-size:90px;
+
+line-height:.9;
+
+font-weight:800;
+
+letter-spacing:-4px;
+
+margin-bottom:25px;
+
+}
+
+.serve-header span{
+
+display:block;
+
+color:#2563eb;
+
+}
+
+.serve-header p{
+
+font-size:18px;
+
+line-height:1.9;
+
+color:#666;
+
+}
+
+/* GRID */
+
+.serve-grid{
+
+display:grid;
+
+grid-template-columns:1fr;
+
+gap:24px;
+
+}
+
+/* CARD */
+
+.serve-card{
+
+position:relative;
+
+background:#fff;
+
+padding:40px;
+
+border-radius:30px;
+
+border:
+
+1px solid rgba(0,0,0,.08);
+
+overflow:hidden;
+
+transition:.5s;
+
+cursor:pointer;
+
+}
+
+/* WATERMARK */
+
+.serve-watermark{
+
+position:absolute;
+
+top:15px;
+right:20px;
+
+font-size:48px;
+
+font-weight:900;
+
+font-family:'Sora';
+
+color:rgba(37,99,235,.05);
+
+pointer-events:none;
+
+user-select:none;
+
+white-space:nowrap;
+
+}
+
+/* TITLE */
+
+.serve-card h3{
+
+font-size:30px;
+
+font-family:'Space Grotesk';
+
+margin-bottom:15px;
+
+font-weight:700;
+
+position:relative;
+
+z-index:2;
+
+}
+
+/* TEXT */
+
+.serve-card p{
+
+font-size:15px;
+
+line-height:1.9;
+
+color:#666;
+
+position:relative;
+
+z-index:2;
+
+}
+
+/* HOVER */
+
+.serve-card:hover{
+
+transform:
+translateY(-12px);
+
+box-shadow:
+0 30px 80px rgba(0,0,0,.08);
+
+}
+
+.serve-card::before{
+
+content:'';
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:4px;
+
+background:#2563eb;
+
+transform:scaleX(0);
+
+transition:.5s;
+
+}
+
+.serve-card:hover::before{
+
+transform:scaleX(1);
+
+}
+
+/* TABLET */
+
+@media(min-width:768px){
+
+.serve-grid{
+
+grid-template-columns:
+repeat(2,1fr);
+
+}
+
+}
+
+/* DESKTOP */
+
+@media(min-width:1200px){
+
+.serve-grid{
+
+grid-template-columns:
+repeat(3,1fr);
+
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.serve-header h2{
+
+font-size:48px;
+
+}
+
+.serve-watermark{
+
+font-size:32px;
+
+}
+
+.serve-card{
+
+padding:30px;
+
+}
+
+}
+
+</style>
+
+<script>
+
+/* =====================================
+WHO WE SERVE ANIMATION
+===================================== */
+
+const serveCards =
+document.querySelectorAll('.serve-card')
+
+const serveObserver =
+new IntersectionObserver(
+
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.animate(
+
+[
+{
+opacity:0,
+transform:'translateY(60px)'
+},
+
+{
+opacity:1,
+transform:'translateY(0)'
+}
+],
+
+{
+duration:900,
+fill:'forwards'
+}
+
+)
+
+}
+
+})
+
+},
+
+{
+threshold:.15
+}
+
+)
+
+serveCards.forEach(card=>{
+
+serveObserver.observe(card)
+
+})
+
+</script>
+
+
+
+
+<!-- =====================================
+STRATEGIC CTA SECTION
+APPLE STYLE
+===================================== -->
+
+<section class="future-section">
+
+<div class="future-container">
+
+<div class="future-label">
+
+THE NEXT STEP
+
+</div>
+
+<h2>
+
+Every Business
+
+Eventually Reaches
+
+<span>
+
+A Turning Point.
+
+</span>
+
+</h2>
+
+<p class="future-text">
+
+A point where spreadsheets become systems.
+
+Where manual work becomes automation.
+
+Where ideas become products.
+
+Where growth becomes infrastructure.
+
+The question isn't whether change is coming.
+
+The question is whether you're ready for it.
+
+</p>
+
+<div class="future-grid">
+
+<div class="future-item">
+
+Build Better Systems
+
+</div>
+
+<div class="future-item">
+
+Automate Operations
+
+</div>
+
+<div class="future-item">
+
+Launch New Products
+
+</div>
+
+<div class="future-item">
+
+Scale Faster
+
+</div>
+
+<div class="future-item">
+
+Generate More Leads
+
+</div>
+
+<div class="future-item">
+
+Future-Proof Your Business
+
+</div>
+
+</div>
+
+<div class="future-bottom">
+
+<p>
+
+When you're ready to build what's next,
+we'll be here.
+
+</p>
+
+<a
+href="https://wa.me/919798114322?text=Hello%20Earns%20Locally"
+class="future-button">
+
+Let's Build It →
+
+</a>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<style>
+
+/* =====================================
+FUTURE CTA
+===================================== */
+
+.future-section{
+
+padding:220px 24px;
+
+background:#ffffff;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.future-container{
+
+max-width:1400px;
+
+margin:auto;
+
+}
+
+/* LABEL */
+
+.future-label{
+
+display:inline-flex;
+
+padding:12px 20px;
+
+background:#f5f5f5;
+
+border-radius:50px;
+
+font-size:12px;
+
+font-weight:800;
+
+letter-spacing:2px;
+
+margin-bottom:35px;
+
+}
+
+/* TITLE */
+
+.future-section h2{
+
+font-family:'Sora';
+
+font-size:110px;
+
+line-height:.9;
+
+letter-spacing:-5px;
+
+font-weight:800;
+
+max-width:1100px;
+
+margin-bottom:40px;
+
+}
+
+.future-section h2 span{
+
+display:block;
+
+color:#2563eb;
+
+}
+
+/* TEXT */
+
+.future-text{
+
+max-width:800px;
+
+font-size:22px;
+
+line-height:2;
+
+color:#666;
+
+margin-bottom:90px;
+
+}
+
+/* GRID */
+
+.future-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(3,1fr);
+
+gap:20px;
+
+margin-bottom:120px;
+
+}
+
+/* ITEM */
+
+.future-item{
+
+padding:35px;
+
+border-radius:24px;
+
+background:#fafafa;
+
+font-size:18px;
+
+font-weight:700;
+
+transition:.4s;
+
+border:
+1px solid rgba(0,0,0,.05);
+
+}
+
+.future-item:hover{
+
+transform:
+translateY(-8px);
+
+background:#fff;
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.08);
+
+}
+
+/* BOTTOM */
+
+.future-bottom{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+gap:40px;
+
+flex-wrap:wrap;
+
+padding-top:60px;
+
+border-top:
+1px solid rgba(0,0,0,.08);
+
+}
+
+.future-bottom p{
+
+font-size:20px;
+
+color:#666;
+
+}
+
+/* BUTTON */
+
+.future-button{
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+padding:20px 36px;
+
+border-radius:100px;
+
+background:#000;
+
+color:#fff;
+
+text-decoration:none;
+
+font-weight:700;
+
+font-size:16px;
+
+transition:.35s;
+
+}
+
+.future-button:hover{
+
+transform:
+translateY(-4px);
+
+}
+
+/* TABLET */
+
+@media(max-width:1024px){
+
+.future-section h2{
+
+font-size:72px;
+
+}
+
+.future-grid{
+
+grid-template-columns:
+repeat(2,1fr);
+
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.future-section{
+
+padding:120px 20px;
+
+}
+
+.future-section h2{
+
+font-size:48px;
+
+letter-spacing:-2px;
+
+}
+
+.future-text{
+
+font-size:17px;
+
+line-height:1.8;
+
+}
+
+.future-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.future-bottom{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+}
+
+.future-bottom p{
+
+font-size:16px;
+
+}
+
+.future-button{
+
+width:100%;
+
+}
+
+}
+
+</style>
+
+<script>
+
+/* =====================================
+CTA REVEAL
+===================================== */
+
+const futureSection =
+document.querySelector('.future-section')
+
+const futureObserver =
+new IntersectionObserver(
+
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.animate(
+
+[
+{
+opacity:0,
+transform:'translateY(100px)'
+},
+
+{
+opacity:1,
+transform:'translateY(0)'
+}
+],
+
+{
+duration:1200,
+fill:'forwards'
+}
+
+)
+
+}
+
+})
+
+},
+
+{
+threshold:.2
+}
+
+)
+
+futureObserver.observe(futureSection)
+
+/* HOVER EFFECT */
+
+const futureItems =
+document.querySelectorAll('.future-item')
+
+futureItems.forEach(item=>{
+
+item.addEventListener(
+
+'mousemove',
+
+(e)=>{
+
+const rect =
+item.getBoundingClientRect()
+
+const x =
+e.clientX - rect.left
+
+const y =
+e.clientY - rect.top
+
+const rx =
+(y - rect.height/2)/20
+
+const ry =
+(rect.width/2 - x)/20
+
+item.style.transform =
+
+`
+rotateX(${rx}deg)
+rotateY(${ry}deg)
+translateY(-8px)
+`
+
+}
+
+)
+
+item.addEventListener(
+
+'mouseleave',
+
+()=>{
+
+item.style.transform =
+
+'translateY(0)'
+
+}
+
+)
+
+})
+
+</script>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+<div class="footer-top">
+
+<h2>
+
+Earns Locally
+
+</h2>
+
+<p>
+
+Building modern digital infrastructure.
+
+</p>
+
+</div>
+
+<div class="footer-grid">
+
+<div>
+
+<h4>
+
+Services
+
+</h4>
+
+<a href="#">Development</a>
+<a href="#">Marketing</a>
+<a href="#">AI Systems</a>
+
+</div>
+
+<div>
+
+<h4>
+
+Solutions
+
+</h4>
+
+<a href="#">Apps</a>
+<a href="#">Websites</a>
+<a href="#">Automation</a>
+
+</div>
+
+<div>
+
+<h4>
+
+Contact
+
+</h4>
+
+<a href="#">WhatsApp</a>
+<a href="#">Email</a>
+<a href="#">LinkedIn</a>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+© 2026 Earns Locally.
+
+</div>
+
+</footer>
+
+
+<script>
+    /* ===================================
+EARNS LOCALLY
+PREMIUM INTERACTION SYSTEM
+=================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+/* ===================================
+ELEMENTS
+=================================== */
+
+const menuBtn =
+document.querySelector(".menu-btn");
+
+const mobileMenu =
+document.querySelector(".mobile-menu");
+
+const navbar =
+document.querySelector(".navbar");
+
+const navLinks =
+document.querySelectorAll("a[href^='#']");
+
+const floatingBoxes =
+document.querySelectorAll(".floating-box");
+
+const hero =
+document.querySelector(".hero");
+
+/* ===================================
+MOBILE MENU
+=================================== */
+
+if(menuBtn){
+
+menuBtn.addEventListener("click",()=>{
+
+mobileMenu.classList.toggle("active");
+
+menuBtn.classList.toggle("active");
+
+});
+
+}
+
+/* ===================================
+CLOSE MENU ON LINK CLICK
+=================================== */
+
+document
+.querySelectorAll(".mobile-menu a")
+.forEach(link=>{
+
+link.addEventListener("click",()=>{
+
+mobileMenu.classList.remove("active");
+
+});
+
+});
+
+/* ===================================
+NAVBAR SCROLL EFFECT
+=================================== */
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY > 50){
+
+navbar.style.padding="0";
+
+navbar.style.boxShadow=
+"0 10px 40px rgba(0,0,0,.08)";
+
+navbar.style.background=
+"rgba(255,255,255,.96)";
+
+}else{
+
+navbar.style.boxShadow="none";
+
+navbar.style.background=
+"rgba(255,255,255,.82)";
+
+}
+
+});
+
+/* ===================================
+SMOOTH SCROLL
+=================================== */
+
+navLinks.forEach(link=>{
+
+link.addEventListener("click",(e)=>{
+
+const targetId =
+link.getAttribute("href");
+
+if(targetId.startsWith("#")){
+
+const target =
+document.querySelector(targetId);
+
+if(target){
+
+e.preventDefault();
+
+target.scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+}
+
+}
+
+});
+
+});
+
+/* ===================================
+HERO REVEAL
+=================================== */
+
+const heroBadge =
+document.querySelector(".hero-badge");
+
+const heroTitle =
+document.querySelector(".hero h1");
+
+const heroText =
+document.querySelector(".hero p");
+
+const heroButtons =
+document.querySelector(".hero-buttons");
+
+if(heroBadge){
+
+heroBadge.style.opacity="0";
+heroBadge.style.transform="translateY(30px)";
+
+setTimeout(()=>{
+
+heroBadge.style.transition=".8s";
+
+heroBadge.style.opacity="1";
+
+heroBadge.style.transform=
+"translateY(0px)";
+
+},300);
+
+}
+
+if(heroTitle){
+
+heroTitle.style.opacity="0";
+
+heroTitle.style.transform=
+"translateY(60px)";
+
+setTimeout(()=>{
+
+heroTitle.style.transition="1s";
+
+heroTitle.style.opacity="1";
+
+heroTitle.style.transform=
+"translateY(0px)";
+
+},500);
+
+}
+
+if(heroText){
+
+heroText.style.opacity="0";
+
+heroText.style.transform=
+"translateY(40px)";
+
+setTimeout(()=>{
+
+heroText.style.transition="1s";
+
+heroText.style.opacity="1";
+
+heroText.style.transform=
+"translateY(0px)";
+
+},800);
+
+}
+
+if(heroButtons){
+
+heroButtons.style.opacity="0";
+
+heroButtons.style.transform=
+"translateY(30px)";
+
+setTimeout(()=>{
+
+heroButtons.style.transition="1s";
+
+heroButtons.style.opacity="1";
+
+heroButtons.style.transform=
+"translateY(0px)";
+
+},1000);
+
+}
+
+/* ===================================
+FLOATING CARDS ANIMATION
+=================================== */
+
+floatingBoxes.forEach((box,index)=>{
+
+setInterval(()=>{
+
+const randomY =
+Math.sin(Date.now()/1000 + index)
+* 10;
+
+box.style.transform=
+`translateY(${randomY}px)`;
+
+},30);
+
+});
+
+/* ===================================
+PARALLAX HERO
+=================================== */
+
+window.addEventListener("mousemove",(e)=>{
+
+const x =
+(e.clientX /
+window.innerWidth)
+- .5;
+
+const y =
+(e.clientY /
+window.innerHeight)
+- .5;
+
+floatingBoxes.forEach((box,index)=>{
+
+const speed =
+(index + 1) * 15;
+
+box.style.transform=
+`
+translate(
+${x * speed}px,
+${y * speed}px
+)
+`;
+
+});
+
+});
+
+/* ===================================
+ACTIVE NAVIGATION
+=================================== */
+
+const sections =
+document.querySelectorAll("section");
+
+window.addEventListener("scroll",()=>{
+
+let current = "";
+
+sections.forEach(section=>{
+
+const sectionTop =
+section.offsetTop;
+
+if(pageYOffset >= sectionTop - 300){
+
+current =
+section.getAttribute("id");
+
+}
+
+});
+
+document
+.querySelectorAll(".desktop-nav a")
+.forEach(link=>{
+
+link.classList.remove("active");
+
+if(
+link.getAttribute("href")
+=== `#${current}`
+){
+
+link.classList.add("active");
+
+}
+
+});
+
+});
+
+/* ===================================
+TRUST BAR PAUSE
+=================================== */
+
+const trustTrack =
+document.querySelector(".trust-track");
+
+if(trustTrack){
+
+trustTrack.addEventListener(
+"mouseenter",
+()=>{
+
+trustTrack.style.animationPlayState=
+"paused";
+
+}
+);
+
+trustTrack.addEventListener(
+"mouseleave",
+()=>{
+
+trustTrack.style.animationPlayState=
+"running";
+
+}
+);
+
+}
+
+/* ===================================
+BUTTON HOVER EFFECT
+=================================== */
+
+document
+.querySelectorAll(
+".primary-btn,.secondary-btn,.nav-btn"
+)
+.forEach(btn=>{
+
+btn.addEventListener(
+"mouseenter",
+()=>{
+
+btn.style.transform=
+"translateY(-5px) scale(1.03)";
+
+}
+);
+
+btn.addEventListener(
+"mouseleave",
+()=>{
+
+btn.style.transform=
+"translateY(0px) scale(1)";
+
+}
+);
+
+});
+
+/* ===================================
+SCROLL PROGRESS BAR
+=================================== */
+
+const progressBar =
+document.createElement("div");
+
+progressBar.style.position="fixed";
+progressBar.style.top="0";
+progressBar.style.left="0";
+progressBar.style.width="0%";
+progressBar.style.height="3px";
+progressBar.style.zIndex="999999";
+progressBar.style.background="#2563eb";
+
+document.body.appendChild(
+progressBar
+);
+
+window.addEventListener("scroll",()=>{
+
+const scrollTop =
+document.documentElement.scrollTop;
+
+const scrollHeight =
+document.documentElement.scrollHeight -
+document.documentElement.clientHeight;
+
+const percentage =
+(scrollTop / scrollHeight)
+* 100;
+
+progressBar.style.width =
+percentage + "%";
+
+});
+
+/* ===================================
+FADE-IN ON SCROLL
+=================================== */
+
+const observer =
+new IntersectionObserver(
+
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity="1";
+
+entry.target.style.transform=
+"translateY(0px)";
+
+}
+
+});
+
+},
+
+{
+threshold:.15
+}
+
+);
+
+document
+.querySelectorAll(
+".footer,.trust-bar"
+)
+.forEach(el=>{
+
+el.style.opacity="0";
+
+el.style.transform=
+"translateY(40px)";
+
+el.style.transition="1s";
+
+observer.observe(el);
+
+});
+
+/* ===================================
+MOBILE OPTIMIZATION
+=================================== */
+
+const isMobile =
+window.innerWidth < 768;
+
+if(isMobile){
+
+floatingBoxes.forEach(box=>{
+
+box.style.backdropFilter=
+"blur(10px)";
+
+});
+
+}
+
+/* ===================================
+KEYBOARD SHORTCUT
+=================================== */
+
+document.addEventListener(
+"keydown",
+(e)=>{
+
+if(e.key === "Home"){
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+}
+
+}
+);
+
+/* ===================================
+CONSOLE BRANDING
+=================================== */
+
+console.log(
+"%c Earns Locally",
+"font-size:20px;font-weight:bold;color:#2563eb;"
+);
+
+console.log(
+"%c Premium Digital Infrastructure",
+"font-size:14px;color:#666;"
+);
+
+});
+</script>
+
+</body>
+</html>
